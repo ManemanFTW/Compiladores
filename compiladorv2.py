@@ -138,28 +138,31 @@ class Node:
     
 def p_main(t):
     '''main : list_statements'''
-    t[0] = Node('Main', [t[1]], None)
+    print(t)
+    #t[0] = Node('Main', [t[1]], None)
 
 def p_list_statement(t):
     '''list_statements : statement list_statements
                         | if_statement list_statements
                         | for_statement list_statements
                         | end_statement'''
-    if len(t) == 3:
-        t[0] = Node('List statement', [t[1]], t[2])
-    else:
-        t[0] = Node('List statement', [t[1]], None)
+    print(t)
+    #if len(t) == 3:
+      #  t[0] = Node('List statement', [t[1]], t[2])
+    #else:
+      #  t[0] = Node('List statement', [t[1]], None)
     
 def p_statement(t):
     '''statement : INTEGER command NEWLINE
                  | INTEGER NEWLINE
                  | NEWLINE'''
-    if len(t) == 4:
-        t[0] = Node('Statement', [t[1], t[2], t[3]], None)
-    elif len(t) == 3:
-        t[0] = Node('Statement', [t[1]], 'Newline')
-    else:
-        t[0] = Node('Statement', 'Newline', None)
+    print(t)
+    #if len(t) == 4:
+     #   t[0] = Node('Statement', [t[1], t[2], t[3]], None)
+    #elif len(t) == 3:
+     #   t[0] = Node('Statement', [t[1]], 'Newline')
+    #else:
+        #t[0] = Node('Statement', 'Newline', None)
     
 
 def p_command(t):
@@ -168,12 +171,12 @@ def p_command(t):
                | PRINT STRING
                | READ expr
                | DATA expr'''
-    if len(t) == 4:
-        t[0] = Node('Command', [t[1], t[2], t[3], t[4]], None)
-    elif len(t) == 3:
-        t[0] = Node('Command', [t[1], t[2]], None)
-    else:
-        t[0] = Node('Command', [t[1]], None)
+    #if len(t) == 4:
+     #   t[0] = Node('Command', [t[1], t[2], t[3], t[4]], None)
+    #elif len(t) == 3:
+     #   t[0] = Node('Command', [t[1], t[2]], None)
+    #else:
+        #t[0] = Node('Command', [t[1]], None)
 
 def p_expr(t):
     '''expr : ID PLUS val
@@ -236,7 +239,8 @@ if len(sys.argv) == 2:
                 break
             print(tok)
 
-        res = parse(data)
+        #res = parse(data)
+        res = parser.parse(data)
         r = open("AST.txt", "w+")
         r.write(str(res))
         r.close()
