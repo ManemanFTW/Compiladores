@@ -1,0 +1,38 @@
+'Main'
+	'List statement'
+		'Statement' => 1
+			'Command' => REM Este test si se puede hacer bien en BASIC
+		'List statement'
+			'For statement' => A1
+				'Expr'
+					'Val' => 1
+				'Expr'
+					'Val' => 5
+				'Val' => 1
+				'For block'
+					'If statement'
+						'Val' => 2
+					'For block'
+						'Statement' => 4
+							'Command' => RES
+								'Expr'
+									'Val' => 8
+						'For block'
+							'If statement'
+								'Val' => 3
+							'For block'
+								'Statement' => 6
+									'Command' => RES
+										'Expr'
+											'Val' => 10
+								'For block'
+									'Next Statemment' => 7
+			'List statement'
+				'Statement' => 8
+					'Read'
+						'Variable list' => RES
+				'List statement'
+					'Statement' => 9
+						'Command PRINT' => "La variable res en este caso no esta en el scope correcto"
+					'List statement'
+						'End statement' => End
